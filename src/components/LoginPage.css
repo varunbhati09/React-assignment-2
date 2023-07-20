@@ -1,0 +1,32 @@
+.login-page {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .login-page h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .login-page form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .login-page .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .login-page label {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .login-page input[type="text"],
+  .login-page input[type="password"] {
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  

@@ -1,0 +1,58 @@
+/* LandingPage.css */
+
+.landing-page {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .landing-page h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .landing-page p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .landing-page nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .landing-page ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .landing-page li {
+    margin: 0 10px;
+  }
+  
+  .landing-page li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+  }
+  
+  .landing-page li a:hover {
+    color: #007bff;
+  }
+  
+  /* Add some styles for buttons */
+  .landing-page button {
+    padding: 8px 16px;
+    margin: 10px;
+    background-color: #000000;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .landing-page button:hover {
+    background-color: #0056b3;
+  }
+  

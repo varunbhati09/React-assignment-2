@@ -1,15 +1,25 @@
-// src/components/NewTicketPage.js
-
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './NewTicketPage.css'; 
 
 const NewTicketPage = ({ onLogout }) => {
   const [leadSource, setLeadSource] = useState('');
-  // ... (other state variables)
+  const [ticketTitle, setTicketTitle] = useState('');
+  const [ticketDescription, setTicketDescription] = useState('');
 
   const navigate = useNavigate();
 
-  // ... (handle functions for form fields)
+  const handleLeadSourceChange = (e) => {
+    setLeadSource(e.target.value);
+  };
+
+  const handleTicketTitleChange = (e) => {
+    setTicketTitle(e.target.value);
+  };
+
+  const handleTicketDescriptionChange = (e) => {
+    setTicketDescription(e.target.value);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,21 +32,20 @@ const NewTicketPage = ({ onLogout }) => {
   return (
     <div className="new-ticket-page">
       <h2>New Ticket Page</h2>
-      <nav>
-        <ul>
-          <li>
-            <button onClick={onLogout}>Logout</button>
-          </li>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <button onClick={handleSubmit}>Submit</button>
-          </li>
-        </ul>
-      </nav>
+
       <form onSubmit={handleSubmit}>
-        {/* ... (form fields) ... */}
+        <div className="form-group">
+          <label>Lead Source:</label>
+          <input type="text" value={leadSource} onChange={handleLeadSourceChange} />
+        </div>
+        <div className="form-group">
+          <label>Ticket Title:</label>
+          <input type="text" value={ticketTitle} onChange={handleTicketTitleChange} />
+        </div>
+        <div className="form-group">
+          <label>Ticket Description:</label>
+          <textarea value={ticketDescription} onChange={handleTicketDescriptionChange} />
+        </div>
         <button type="submit">Submit</button>
       </form>
     </div>

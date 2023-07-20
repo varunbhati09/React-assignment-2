@@ -1,7 +1,6 @@
-// src/components/LandingPage.js
-
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import './LandingPage.css'; // Import the CSS file for LandingPage
 
 const LandingPage = ({ username }) => {
   const currentTime = new Date();
@@ -20,16 +19,7 @@ const LandingPage = ({ username }) => {
     <div className="landing-page">
       <h2>Good {timeOfDay}, Rescuer!</h2>
       <p>How are you doing today, {username}?</p>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/new-ticket">Create New Ticket</Link>
-          </li>
-        </ul>
-      </nav>
+   
       <Outlet />
     </div>
   );
