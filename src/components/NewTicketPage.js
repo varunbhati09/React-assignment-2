@@ -1,17 +1,15 @@
 // src/components/NewTicketPage.js
 
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const NewTicketPage = ({ onLogout }) => {
   const [leadSource, setLeadSource] = useState('');
-  // ... (other form state variables)
+  // ... (other state variables)
 
-  const handleLogout = () => {
-    // Call the onLogout function to handle the logout action.
-    onLogout();
-  };
+  const navigate = useNavigate();
 
-  // ... (remaining form handling functions)
+  // ... (handle functions for form fields)
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,9 +25,11 @@ const NewTicketPage = ({ onLogout }) => {
       <nav>
         <ul>
           <li>
-            <button onClick={handleLogout}>Logout</button>
+            <button onClick={onLogout}>Logout</button>
           </li>
-          <li>Home</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
           <li>
             <button onClick={handleSubmit}>Submit</button>
           </li>

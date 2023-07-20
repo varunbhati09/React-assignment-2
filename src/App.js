@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, Link, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, Outlet, Navigate } from 'react-router-dom';
 import LoginPage from './components/LoginPage';
 import NewTicketPage from './components/NewTicketPage';
 import LandingPage from './components/LandingPage';
@@ -35,21 +35,31 @@ function App() {
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li>
-              <Link to="/landing">Landing Page</Link>
-            </li>
-            <li>
-              <Link to="/new-ticket">New Ticket</Link>
-            </li>
+            {isLoggedIn ? (
+              <>
+                <li>
+                  <Link to="/landing">Landing Page</Link>
+                </li>
+                <li>
+                  <Link to="/new-ticket">New Ticket</Link>
+                </li>
+                <li>
+                  <button onClick={handleLogout}>Logout</button>
+                </li>
+              </>
+            ) : null}
           </ul>
         </nav>
         <Routes>
           <Route path="/" element={<LoginPage onLogin={handleLogin} />} />
           <Route
             path="/landing"
-            element={isLoggedIn ? <LandingPage username={username} onLogout={handleLogout} /> : <Navigate to="/" />}
+            element={isLoggedIn ? <LandingPage username={username} /> : <Navigate to="/" />}
           />
-          <Route path="/new-ticket" element={isLoggedIn ? <NewTicketPage onLogout={handleLogout} /> : <Navigate to="/" />} />
+          <Route
+            path="/new-ticket"
+            element={isLoggedIn ? <NewTicketPage onLogout={handleLogout} /> : <Navigate to="/" />}
+          />
         </Routes>
       </div>
     </Router>

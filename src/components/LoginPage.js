@@ -1,10 +1,13 @@
 // src/components/LoginPage.js
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const LoginPage = () => {
+const LoginPage = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -24,6 +27,10 @@ const LoginPage = () => {
     // For this example, we'll just log the username and password.
     console.log('Username:', username);
     console.log('Password:', password);
+
+    // Assume the login is successful, then navigate to the landing page.
+    onLogin(username, password);
+    navigate('/landing');
   };
 
   const handleForgotPassword = () => {

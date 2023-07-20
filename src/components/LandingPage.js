@@ -1,7 +1,7 @@
 // src/components/LandingPage.js
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const LandingPage = ({ username }) => {
   const currentTime = new Date();
@@ -30,6 +30,7 @@ const LandingPage = ({ username }) => {
           </li>
         </ul>
       </nav>
+      <Outlet />
     </div>
   );
 };
